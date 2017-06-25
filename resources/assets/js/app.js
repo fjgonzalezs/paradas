@@ -8,6 +8,15 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+const VueGoogleMaps = require('vue2-google-maps');
+
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyDUJUYtCFL0MrWd5ktO_yS1GYSJirQPl4E',
+    v: '3.27'
+    
+  }
+})
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -16,6 +25,7 @@ window.Vue = require('vue');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('posicion', require('./components/posicion.vue'));
 
 const app = new Vue({
     el: '#app'
