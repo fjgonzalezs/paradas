@@ -20940,6 +20940,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 	data: function data() {
@@ -20978,6 +20998,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 				_this.centro.lat = _this.latitud;
 				_this.centro.lon = _this.longitud;
 			});
+		},
+		enviar: function enviar() {
+			axios.post('/enviar', { datos: this.paradas });
 		}
 	}
 });
@@ -36932,9 +36955,12 @@ module.exports = Component.exports
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_vm._m(0), _vm._v(" "), _c('div', {
-    staticClass: "mdl-grid"
+    staticClass: "row",
+    staticStyle: {
+      "margin-bottom": "20px"
+    }
   }, [_c('div', {
-    staticClass: "mdl-cell mdl-cell--6-col-phone"
+    staticClass: "col-xs-12"
   }, [_c('label', {
     attrs: {
       "for": "lat"
@@ -36947,8 +36973,22 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     on: {
       "click": _vm.getLocalizacion
     }
-  }, [_vm._v("Obtener coordenadas")])])]), _vm._v(" "), _c('div', {
-    staticClass: "mdl-grid"
+  }, [_vm._v("Obtener coordenadas")]), _vm._v(" "), _c('button', {
+    on: {
+      "click": _vm.enviar
+    }
+  }, [_vm._v("enviar")])])]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c('div', {
+    staticClass: "tab-content"
+  }, [_c('div', {
+    staticClass: "tab-pane fade in active",
+    attrs: {
+      "role": "tabpanel",
+      "id": "mapa"
+    }
+  }, [_c('div', {
+    staticClass: "row"
+  }, [_c('div', {
+    staticClass: "col-xs-12"
   }, [_c('gmap-map', {
     staticStyle: {
       "width": "100%",
@@ -36989,13 +37029,49 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       "path": _vm.ruta,
       "editable": false
     }
-  })], 2)], 1)])
+  })], 2)], 1)])]), _vm._v(" "), _c('div', {
+    staticClass: "tab-pane fade",
+    attrs: {
+      "role": "tabpanel",
+      "id": "rutas"
+    }
+  }, [_vm._v("...")])])])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "mdl-grid"
+    staticClass: "row"
   }, [_c('div', {
-    staticClass: "mdl-cell mdl-cell--6-col-phone"
-  }, [_c('h4', [_vm._v("Posicion")])])])
+    staticClass: "col-xs-6"
+  }, [_c('h1', [_vm._v("Posiciones")])])])
+},function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('ul', {
+    staticClass: "nav nav-tabs",
+    attrs: {
+      "role": "tablist"
+    }
+  }, [_c('li', {
+    staticClass: "active",
+    attrs: {
+      "role": "presentation"
+    }
+  }, [_c('a', {
+    attrs: {
+      "href": "#mapa",
+      "aria-controls": "mapa",
+      "role": "tab",
+      "data-toggle": "tab"
+    }
+  }, [_vm._v("Mapa")])]), _vm._v(" "), _c('li', {
+    attrs: {
+      "role": "presentation"
+    }
+  }, [_c('a', {
+    attrs: {
+      "href": "#rutas",
+      "aria-controls": "rutas",
+      "role": "tab",
+      "data-toggle": "tab"
+    }
+  }, [_vm._v("Rutas")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {

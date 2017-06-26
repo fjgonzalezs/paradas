@@ -1,21 +1,33 @@
 <template>
-	<div>
-	<div class="mdl-grid">
-		 <div class="mdl-cell mdl-cell--6-col-phone"><h4>Posicion</h4></div>
-		  
+	<div >
+	<div class="row" >
+		<div class="col-xs-6">
+			<h1>Posiciones</h1>
+		</div>
+		
 	</div>
-	<div class="mdl-grid">
-	 <div class="mdl-cell mdl-cell--6-col-phone">
-	 	<label for="lat">latitud: {{latitud}}</label> <br>
+	
+	<div class="row" style="margin-bottom: 20px;">
+		<div class="col-xs-12">
+			<label for="lat">latitud: {{latitud}}</label> <br>
 	 	<label for="lon">longitud: {{longitud}}</label> <br>
 	 	<button @click="getLocalizacion">Obtener coordenadas</button>
-	 </div>
-	 
-	
+	 	<button @click="enviar">enviar</button>
+		</div>
 	</div>
+	 	  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#mapa" aria-controls="mapa" role="tab" data-toggle="tab">Mapa</a></li>
+    <li role="presentation"><a href="#rutas" aria-controls="rutas" role="tab" data-toggle="tab">Rutas</a></li>
+   
+    
+  </ul>
 
-	<div class="mdl-grid">
-		
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="mapa">
+    	<div class="row">
+		<div class="col-xs-12">
 			<gmap-map
     :center="centro"
     :zoom="14"
@@ -44,7 +56,15 @@
       </gmap-polyline>
     
   </gmap-map>
+		
 		</div>
+	</div>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="rutas">...</div>
+   
+  </div>
+	
+	 	
 	
 	
 	</div>
@@ -122,6 +142,10 @@
 				 	this.centro.lat = this.latitud;
 				 	this.centro.lon = this.longitud;
 				 } );
+			},
+			enviar(){
+				axios.post('/enviar',{datos: this.paradas})
+
 			}
 		}
 	}

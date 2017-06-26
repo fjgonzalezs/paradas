@@ -17,3 +17,4 @@ Route::get('/', function () {
 Route::get('mapa', function(){
 	return view('body');
 });
+Route::post('enviar', 'enviarControlador@enviar');
